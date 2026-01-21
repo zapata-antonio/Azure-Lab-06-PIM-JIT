@@ -24,10 +24,10 @@ Eliminar administradores permanentes y reducir la superficie de ataque mediante 
 [<img src="images/03-audit-activation.png" width="800">](images/03-audit-activation.png)
 
 ## ✅ Checklist de verificación
-- [ ] Rol no queda **Active** permanentemente (solo Eligible)
-- [ ] Activación requiere **motivo/justificación**
-- [ ] (Opcional) Duración limitada (ej. 1h) / MFA / Ticket si aplica
-- [ ] Logs de activación disponibles (Audit history)
+- [x] Rol no queda **Active** permanentemente (solo Eligible)
+- [x] Activación requiere **motivo/justificación**
+- [x] (Opcional) Duración limitada (ej. 1h) / MFA / Ticket si aplica
+- [x] Logs de activación disponibles (Audit history)
 
 ## 🗣️ Qué le diría al cliente / entrevista
 “PIM reduce riesgo: aunque roben una cuenta, no obtienen privilegios admin sin una activación controlada (JIT), con justificación y auditoría. Así minimizamos el tiempo de exposición y aumentamos trazabilidad.”
