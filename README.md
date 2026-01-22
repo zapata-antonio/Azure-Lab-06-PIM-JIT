@@ -1,33 +1,56 @@
 # Azure-Lab-06-PIM-JIT
-🧪 LAB 06: Privileged Identity Management (PIM) - JIT
-Repo: Azure-Lab-06-PIM-JIT
 
-# Lab 06: Gestión de Privilegios Just-In-Time (PIM)
+# 🧪Lab 06: Gestión de Privilegios Just-In-Time (PIM) – Aprobación + Auditoría
 
 ## 🎯 Objetivo
-Eliminar administradores permanentes y reducir la superficie de ataque mediante activaciones **Just-In-Time (JIT)** con trazabilidad.
+Eliminar administradores permanentes y reducir la superficie de ataque mediante **Privileged Identity Management (PIM)**:
+- Asignaciones **Eligible (JIT)** en lugar de permanentes
+- Activación temporal con **justificación**
+- (Opcional/Pro) Flujo de **aprobación** y evidencia en **auditoría**
 
-## 🛠️ Tareas realizadas
-1. Asignación **Eligible** del rol **User Administrator** (sin privilegio permanente).
-2. Activación del rol desde **My roles** con **justificación** (JIT).
-3. Auditoría de la activación en **Audit history**.
+## 🧰 Requisitos
+- Microsoft Entra ID con **PIM habilitado** (Identity Governance).
+- Usuarios de laboratorio (ej.: `usuario_4` como candidato a la activación).
+
+## 🛠️ Tareas realizadas (paso a paso)
+1. **Asignar rol “User Administrator” como Eligible** a `usuario_4`.
+2. **Endurecer la activación** del rol con:
+   - Duración máxima: **1 hora**
+   - Requerir **Azure MFA**
+   - Requerir **justificación**
+   - Requerir **aprobación** para activar
+3. **Activar el rol** desde `My roles` con `usuario_4` indicando motivo.
+4. **Aprobar la solicitud** (aprobador) y verificar que la activación se concede.
+5. **Validar auditoría**: evidenciar evento **Succeeded** de activación PIM.
 
 ## 📸 Evidencias
 
-### 01 - Asignación Eligible (User Administrator)
-[<img src="images/01-eligible.png" width="800">](images/01-eligible.png)
+**01 – Eligible (usuario_4)**  
+[<img src="images/01-eligible-user4.png" width="800">](images/01-eligible-user4.png)
 
-### 02 - Activación JIT con justificación (My roles)
-[<img src="images/02-activate.png" width="800">](images/02-activate.png)
+**02 – PIM Role Settings (MFA + Justificación + Approval + 1h)**  
+[<img src="images/02-role-settings-useradmin.png" width="800">](images/02-role-settings-useradmin.png)
 
-### 03 - Auditoría de activación (Audit history)
-[<img src="images/03-audit-activation.png" width="800">](images/03-audit-activation.png)
+**03 – Auditoría: activación PIM completada (Succeeded)**  
+[<img src="images/03-audit-pim-activation-user4.png" width="800">](images/03-audit-pim-activation-user4.png)
+
+**04 – Solicitud de activación (My roles → Activate)**  
+[<img src="images/04-activate-request-user4.png" width="800">](images/04-activate-request-user4.png)
+
+**05 – Aprobación de la solicitud (Approve request)**  
+[<img src="images/05-approve-request-user4.png" width="800">](images/05-approve-request-user4.png)
 
 ## ✅ Checklist de verificación
-- [x] Rol no queda **Active** permanentemente (solo Eligible)
-- [x] Activación requiere **motivo/justificación**
-- [x] (Opcional) Duración limitada (ej. 1h) / MFA / Ticket si aplica
-- [x] Logs de activación disponibles (Audit history)
+- [x] El rol se asigna como **Eligible**, no como Active permanente.
+- [x] La activación está limitada en tiempo (**máx. 1h**).
+- [x] La activación requiere **Azure MFA**.
+- [x] La activación requiere **justificación**.
+- [x] La activación requiere **aprobación**.
+- [x] Existe evidencia en **Audit logs** con estado **Succeeded**.
 
-## 🗣️ Qué le diría al cliente / entrevista
-“PIM reduce riesgo: aunque roben una cuenta, no obtienen privilegios admin sin una activación controlada (JIT), con justificación y auditoría. Así minimizamos el tiempo de exposición y aumentamos trazabilidad.”
+## 🧠 Aprendizajes clave
+- PIM permite **privilegios bajo demanda (JIT)**, reduciendo el riesgo de cuentas con permisos permanentes.
+- Con aprobación y justificación, la elevación queda **controlada y trazable**, útil para cumplimiento y auditorías.
+
+## 🗣️ Qué le diría a un cliente / en entrevista
+“Con PIM evito administradores permanentes: los usuarios quedan **Eligible** y solo elevan privilegios cuando lo necesitan, por tiempo limitado y con **MFA + justificación + aprobación**. Además, todo queda registrado en **auditoría**, lo que mejora seguridad y cumplimiento.”
