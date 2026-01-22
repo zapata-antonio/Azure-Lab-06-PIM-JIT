@@ -23,22 +23,24 @@ Eliminar administradores permanentes y reducir la superficie de ataque mediante 
 4. **Aprobar la solicitud** (aprobador) y verificar que la activación se concede.
 5. **Validar auditoría**: evidenciar evento **Succeeded** de activación PIM.
 
-## 📸 Evidencias
+**01 – Eligible assignment creado**
+[<img src="images/01-eligible.png" width="800">](images/01-eligible.png)
 
-**01 – Eligible (usuario_4)**  
-[<img src="images/01-eligible-user4.png" width="800">](images/01-eligible-user4.png)
+**02 – Role settings (MFA + Justificación + Approval + 1h)**
+[<img src="images/role-settings-approval.png" width="800">](images/role-settings-approval.png)
 
-**02 – PIM Role Settings (MFA + Justificación + Approval + 1h)**  
-[<img src="images/02-role-settings-useradmin.png" width="800">](images/02-role-settings-useradmin.png)
+**03 – Auditoría: Eligible assignment (Succeeded)**
+[<img src="images/03-audit-eligible-assignment-user4.png" width="800">](images/03-audit-eligible-assignment-user4.png)
 
-**03 – Auditoría: activación PIM completada (Succeeded)**  
-[<img src="images/03-audit-pim-activation-user4.png" width="800">](images/03-audit-pim-activation-user4.png)
+**04 – Solicitud de activación (My roles → Activate)**
+[<img src="images/04-activate-form-justification.png" width="800">](images/04-activate-form-justification.png)
 
-**04 – Solicitud de activación (My roles → Activate)**  
-[<img src="images/04-activate-request-user4.png" width="800">](images/04-activate-request-user4.png)
+**05 – Aprobación / Activación concedida**
+[<img src="images/05-activation-active.png" width="800">](images/05-activation-active.png)
 
-**05 – Aprobación de la solicitud (Approve request)**  
-[<img src="images/05-approve-request-user4.png" width="800">](images/05-approve-request-user4.png)
+**06 – Auditoría: Activación completada (Succeeded)**
+[<img src="images/03-audit-activation.png" width="800">](images/03-audit-activation.png)
+
 
 ## ✅ Checklist de verificación
 - [x] El rol se asigna como **Eligible**, no como Active permanente.
